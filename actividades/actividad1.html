@@ -1,9 +1,6 @@
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html class="no-js">
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,9 +85,37 @@
 
 		</aside>
 
-		<div id="fh5co-main">
+		<div id="fh5co-main" style="text-align: justify">
 			<div class="fh5co-narrow-content">
 				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Actividad 1</h2>
+				<div>
+					<h4><strong>GitLab</strong> es un proyecto de código libre que se puede instalar en tu propio servidor y que te permite tener repositorios privados.  Este proyecto nació en Ucrania y poco a a poco se convirtió en uno los mas importantes sistemas de control de versiones.</h4>
+					<h5>Vamos a empezar instalando las dependencias necesarias:</h5>
+					<h5>sudo apt-get install ca-certificates curl openssh-server postfix</h5>
+					<h5>Vamos a instalar el repositorio necesario:</h5>
+					<h5>curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash</h5>
+					<h5>Finalmente, instalamos GitLab con la url externa desde donde accederemos:</h5>
+					<h5>sudo EXTERNAL_URL="https://localhost:4005" apt-get install gitlab-ee</h5>
+					<img style="max-width: 50%;" src="../images/act1_f1.png">
+					<br><br>
+					<h5>Vamos a cambiar el puerto que habiamos puesto como 4005 a 4007.</h5>
+					<h5>Para eso editamos /etc/gitlab/gitlab.r y cambiamos external_url</h5>
+					<img style="max-width: 50%;" src="../images/acti1_1.png">
+					<br><br>
+					<h5>Hacemos el comando: sudo gitlab-ctl reconfigure</h5>
+					<h5>Para que se actualicen los cambios y lo comprobamos:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_2.png">
+					<br><br>
+					<h5>Ahora vamos a inpedir que los usuarios puedan cambiar su identificador.</h5>
+					<h5>Entramos en el mismo archivo que ates y buscamos la linea:</h5>
+					<h5>gitlab_rails[‘gitlab_username_changing_enabled’] = true</h5>
+					<h5>Descomentamos esa linea y la pasamos a false:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_3.png">
+					<br><br>
+					<h5>Para modificar el tiempo de expiración de sesión entramos en: Settings → Account and limit</h5>
+					<img style="max-width: 50%;" src="../images/acti1_4.png">
+					<br><br>
+				</div>
 			</div>
 		</div>
 	</div>
