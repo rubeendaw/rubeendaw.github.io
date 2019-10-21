@@ -57,7 +57,6 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 	</head>
 	<body>
 	<div id="fh5co-page">
@@ -115,6 +114,47 @@
 					<h5>Para modificar el tiempo de expiración de sesión entramos en: Settings → Account and limit</h5>
 					<img style="max-width: 50%;" src="../images/acti1_4.png">
 					<br><br>
+					<h5>Ejemplos de procesos por llamada API:
+						<br><br>
+						<ul>
+							<li>Gestión usuarios: </li>
+							<ul>
+								<li>Crear usuario: POST /users</li>
+								<li>Modificar usuario: PUT /users/:id</li>
+								<li>Borrar usuario: DELETE /users/:id</li>
+								<li>Bloqueo de usuarios: POST /users/:id/block</li>
+								<li>Desbloqueo de usuarios: POST /users/:id/unblock</li>
+								<li>Hacer usuario administrador: PUT /users/:id y le añadimos admin=true</li>
+							</ul>
+							<li>Creación de proyecto: POST /projects</li>
+						</ul>
+					</h5>
+					<h5>Vamos a proceder a modificar la página de creación de un proyecto nuevo:</h5>
+					<h5>Entramos en Admin area, appearance y New project pages</h5>
+					<h5>Procedemos a hacer el cambio y le damos a update appeareance settings:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_10.png">
+					<br><br>
+					<h5>Si queremos cambiar la descripción y el logo de la pantalla de logi, entramos en Admin area y appearance:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_11.png">
+					<br><br>
+					<h5>Comprobamos como se ha cambiado:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_12.png">
+					<br><br>
+					<h5>Para terminar la apariencia vamos a cambiar el favicon desde el mismo sitio que el anterior:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_13.png">
+					<br><br>
+					<h5>Vamos al apartado de crear proyecto pero vamos a importarlo de github, para eso vamos a pulsar en import project y seleccionamos github:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_14.png">
+					<br><br>
+					<h5>Tendremos que introducir nuestro token privado de github que no voy a mostrar por privacidad, luego veremos que podemos seleccionar nuestro proyecto a importar:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_15.png">
+					<br><br>
+					<h5>Podemos ver como tenemos ya nuestro repositorio importado:</h5>
+					<img style="max-width: 50%;" src="../images/acti1_16.png">
+					<br><br>
+					<h5>Si queremos importar desde una llamada api se hace de la siguiente forma:</h5>
+					<h5>curl --request POST --header "PRIVATE-TOKEN: 9koXpg98eAheJpvBs5tK" --data "personal_access_token=abc123&repo_id=12345&target_namespace=root" https://gitlab.example.com/api/v4/import/github</h5>
+					<h5>Con los siguientes parámetros: personal_access_token, repo_id, new_name y target_namespace</h5>
 				</div>
 			</div>
 		</div>
