@@ -81,13 +81,80 @@
 					<!-- <li><a href="#"><i class="icon-linkedin2"></i></a></li> -->
 				</ul>
 			</div>
-
+			
 		</aside>
-
+		
 		<div id="fh5co-main" style="text-align: justify">
 			<div class="fh5co-narrow-content">
-                <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Actividad 5</h2>
-                <h1>La actividad será subida hoy jueves 9 de enero</h1>
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Actividad 5</h2>
+				<h4><strong>Docker</strong> Es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software, proporcionando una capa adicional de abstracción y automatización de virtualización de aplicaciones en múltiples sistemas operativos. crea contenedores ligeros y portables para que las aplicaciones puedan ejecutarse en cualquier máquina con Docker instalado.</h4>
+				<h4>Docker, ofrece un modelo de implementación basado en imágenes. Esto permite compartir una aplicación, o un conjunto de servicios, con todas sus dependencias en varios entornos. También automatiza la implementación de la aplicación en este entorno de contenedores.</h4>
+				<h4>Docker  proporciona una manera estándar de ejecutar su código. El hardware del servidor y los contenedores que virtualiza el sistema operativo de un servidor.</h4>
+				<br><br>
+				<h3>MySQL</h3>
+				<br>
+				<h5>Empezamos descargando la imagen de MySQL:</h5>
+				<img style="max-width: 50%;" src="../images/docker_01.png">
+				<br><br>
+				<h5>Creamos una red con el nombre my_net para conectar los contenedores entre sí:<h5>
+				<img style="max-width: 50%;" src="../images/docker_02.png">
+				<br><br>
+				<h5>Creamos nuestro volumen para el mysql con el nombre vol_mysql:</h5>
+				<img style="max-width: 50%;" src="../images/docker_03.png">
+				<br><br>
+				<h5>Vamos a usar estos parámetros de configuración:</h5>
+				<h5>MYSQL_ROOT_PASSWORD=12345678</h5>
+				<h5>MYSQL_DATABASE=wordpress</h5>
+				<h5>MYSQL_USER=wordpress</h5>
+				<h5>MYSQL_PASSWORD=wordpress</h5>
+				<br>
+				<h5>Aquí nos saldra un codigo como que se ha ejecutado correctamente:</h5>
+				<img style="max-width: 50%;" src="../images/docker_04_01.png">
+				<br><br>
+				<h5>Por último comprobar que está funcionando:</h5>
+				<img style="max-width: 50%;" src="../images/docker_05.png">
+				<br><br>
+				<h3>WordPress</h3>
+				<br>
+				<h5>Al igual que antes vamos a descargar la imagen, wordpress en este caso:</h5>
+				<img style="max-width: 50%;" src="../images/docker_06.png">
+				<br><br>
+				<h5>Creamos nuestro volumen para el wordpress con el nombre vol_wordpress:</h5>
+				<img style="max-width: 50%;" src="../images/docker_07.png">
+				<br><br>
+				<h5>Vamos a usar estos parámetros de configuración:</h5>
+				<h5>WORDPRESS_DB_HOST=wp_mysql</h5>
+				<h5>WORDPRESS_DB_USER=wordpress</h5>
+				<h5>WORDPRESS_DB_PASSWORD=wordpress</h5>
+				<br>
+				<h5>Aquí vemos como se ha ejecutado correctamente:</h5>
+				<img style="max-width: 50%;" src="../images/docker_08.png">
+				<br><br>
+				<h5>Después de comprobar que el mysql si que tiene las tablas y esta funcionando, el wordpress también carga pero no puede acceder al mysql, se intenta recuperar y tampoco:</h5>
+				<img style="max-width: 50%;" src="../images/docker_09.png">
+				<br><br>
+				<h5>Lo que sí he podido comprobar es que si se detienen y se vuelve a arrancar el mysql sigue funcionando y el wordpress sigue sin funcionar…</h5>
+				<br>
+				<h3>Dockerfile</h3>
+				<br>
+				<h5>Ahora vamos a crear un dockerfile con los siguientes parámetros:</h5>
+				<img style="max-width: 50%;" src="../images/docker_10.png">
+				<br><br>
+				<h5>Creamos nuestro fichero de configuración con los siguientes datos para que en el dockerfile lo use correctamente:</h5>
+				<img style="max-width: 50%;" src="../images/docker_11.png">
+				<br><br>
+				<h5>Ahora vamos a ejecutar el dockerfile con: sudo docker build .
+					Vemos como se ha montado correctamente y nos da la id que nos hace falta para el siguiente paso, si te fijas en mi caso la id no es la misma por que tenia un error y tuve que volver a hacer el build que lo hace con una id diferente y no me di cuenta que no tenía captura de ese paso.</h5>
+				<img style="max-width: 50%;" src="../images/docker_12.png">
+				<br><br>
+				<h5>Por último ejecutamos el contenedor con el siguiente comando y la id del paso anterior que esta si es la buena que me salio a mi en mi último build que ya funciona</h5>
+				<img style="max-width: 50%;" src="../images/docker_13.png">
+				<br><br>
+				<h5>He creado un index.html que lo podéis ver en el dockerfile y aquí vemos como está funcionando.</h5>
+				<img style="max-width: 50%;" src="../images/docker_14.png">
+				<br><br>
+				<h5>También en el dockerfile podéis ver el fichero 404.html, aquí vemos como funciona cuando buscas algo que no existe:</h5>
+				<img style="max-width: 50%;" src="../images/docker_15.png">
 			</div>
         </div>
 
